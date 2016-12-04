@@ -13,3 +13,11 @@ services:
     app.productRepository:
         class: AppBundle\Libs\Product\ProductRepository
         arguments: ['@app.mysql', '@app.elastic']
+
+    app.visitLoggerStorage:
+        class: AppBundle\Libs\VisitLogger\FileLoggerStorage
+        arguments: ['/Visits']
+
+    app.visitLogger:
+        class: AppBundle\Libs\VisitLogger\Logger
+        arguments: ['@app.visitLoggerStorage']
