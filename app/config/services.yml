@@ -4,6 +4,12 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.mysql:
+        class: AppBundle\Libs\MySQL\MySQLDriver
+
+    app.elastic:
+        class: AppBundle\Libs\ElasticSearch\ElasticSearchDriver
+
+    app.productRepository:
+        class: AppBundle\Libs\Product\ProductRepository
+        arguments: ['@app.mysql', '@app.elastic']
