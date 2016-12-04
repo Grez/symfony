@@ -20,9 +20,9 @@ class FileLoggerStorage implements ILoggerStorage
 	 * PATH folder would have .gitignore
 	 *
 	 * @param string $name
-	 * @param int $id
+	 * @param string $id
 	 */
-	public function logVisit(string $name, int $id)
+	public function logVisit(string $name, string $id)
 	{
 		$filePath = $this->getFilePath($name, $id);
 		$value = intVal(@file_get_contents($filePath)) ?: 0;
@@ -31,10 +31,10 @@ class FileLoggerStorage implements ILoggerStorage
 
 	/**
 	 * @param string $name
-	 * @param int $id
+	 * @param string $id
 	 * @return string
 	 */
-	private function getFilePath(string $name, int $id)
+	private function getFilePath(string $name, string $id)
 	{
 		// @TODO: $id should be escaped for characters such as "/" etc.
 		return __DIR__ . $this->folder . '/' . $name . '-' . $id . '.txt';

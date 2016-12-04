@@ -32,15 +32,25 @@ class ProductRepository
 	}
 
 	/**
-	 * @param int $id
+	 * @param string $id
 	 * @return array
 	 */
-	public function findById(int $id)
+	public function findById(string $id)
 	{
-		if ($this->elasticAllowed) { //
+		if ($this->elasticAllowed) {
 			return $this->elasticSearchDriver->findById($id);
 		} else {
 			return $this->mySQLDriver->findProduct($id);
 		}
+	}
+
+	/**
+	 * @param bool $elasticAllowed
+	 * @return ProductRepository
+	 */
+	public function setElasticAllowed(bool $elasticAllowed)
+	{
+		$this->elasticAllowed = $elasticAllowed;
+		return $this;
 	}
 }

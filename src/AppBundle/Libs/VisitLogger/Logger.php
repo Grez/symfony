@@ -15,7 +15,7 @@ class Logger
 		$this->storage = $storage;
 	}
 
-	public function logVisit(string $name, int $id)
+	public function logVisit(string $name, string $id)
 	{
 		$this->storage->logVisit($name, $id);
 	}

@@ -4,5 +4,5 @@ namespace AppBundle\Libs\VisitLogger;
 
 interface ILoggerStorage
 {
-	public function logVisit(string $name, int $id);
+	public function logVisit(string $name, string $id);
 }

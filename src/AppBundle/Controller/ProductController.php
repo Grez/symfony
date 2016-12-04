@@ -12,9 +12,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class ProductController extends Controller
 {
 	/**
-	 * @Route("/detail/{id}", name="detail_show")
+	 * @Route("/detail/{id}", name="product_detail")
 	 */
-	public function detailAction(int $id)
+	public function detailAction(string $id)
 	{
 		$cachedProduct = $this->getCache()->getItem('product-detail' . $id);
 		if (!$cachedProduct->isHit()) {
